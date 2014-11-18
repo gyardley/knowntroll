@@ -1,0 +1,33 @@
+.box.box-primary
+  .box-header
+    h3.box-title
+      = subscribe.name
+      br
+      small
+        = subscribe.description
+    .box-tools.pull-right
+      .label.bg-red
+        = pluralize(subscribe.block_list.count, "account")
+        '  blocked
+  .box-body.subscription-box
+    .creator
+      p Created by:
+      = link_to "http://twitter.com/#{subscribe.owner.screen_name}" do
+        img src=(subscribe.owner.image_url)
+        br
+        = subscribe.owner.name
+        br
+        i.fa.fa-twitter
+        = subscribe.owner.screen_name
+    p Blocked accounts:
+    div
+      - subscribe.trolls.each do |troll|
+        .label.bg-red.blocked-account
+          = link_to "http://twitter.com/#{troll.screen_name}" do
+            i.fa.fa-twitter
+            = troll.screen_name
+    .clearfix
+  .box-footer
+    = form_tag('/lists/subscribe', method: :post) do
+      = hidden_field_tag :list_id, subscribe.id
+      = submit_tag "Subscribe, and block all of '#{subscribe.name}'", class: "btn btn-primary btn-flat"

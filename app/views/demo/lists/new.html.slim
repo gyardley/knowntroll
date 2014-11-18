@@ -1,0 +1,36 @@
+section
+  .row
+    .col-xs-12
+      .callout.callout-danger
+        h4
+          ' Creating a blocklist (demo)
+        p
+          ' A blocklist starts with a name and description. After that, users add individual blocks to the blocklist.
+        p
+          ' While you can't create a blocklist in the demo, you can see the interface for doing so by
+          = link_to "clicking here", edit_demo_lists_path
+          | .
+section.content-header
+  h1.header Create A New Block List
+    <small>Set up a new block list around a particular theme</small>
+section.content
+  .row
+    .col-xs-12.col-md-10.col-md-offset-1
+      .callout.callout-info
+        h4 Provide a name and description for your list
+        p This information will be visible to your friends on Twitter who also use KnownTroll.
+        p You'll create a blank list first, and then add individual blocks to it afterwards.
+  .row
+    .col-xs-12.col-md-10.col-md-offset-1
+        form.new_list accept-charset="UTF-8" action="#" id="new_list"
+          .form-group
+            label.control-label for="list_name"
+              ' Name
+            input.form-control id="list_name" name="list[name]" type="text"
+          .form-group
+            label.control-label for="list_description"
+              ' Description
+            input.form-control id="list_description" name="list[description]" type="text"
+            input.btn.btn-default.disabled name="commit" type="submit" value="Create this list"
+
+

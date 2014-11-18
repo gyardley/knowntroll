@@ -1,0 +1,26 @@
+header.header
+  = link_to "KnownTroll", root_path, class: "logo"
+  nav.navbar.navbar-static-top.navigation
+    - if current_user
+      a.navbar-btn.sidebar-toggle href="#" data-toggle="offcanvas" role="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    div.navbar-right
+      ul.nav.navbar-nav
+        - if current_user
+          li.dropdown
+            a.dropdown-toggle href="#" data-toggle="dropdown"
+              i.glyphicon.glyphicon-user
+              span
+                = current_user.screen_name
+                i.caret
+            ul.dropdown-menu
+              li
+                = link_to "Sign out", signout_path
+        - else
+          li
+            = link_to "/auth/twitter" do
+              i.fa.fa-twitter
+              ' Sign in with Twitter

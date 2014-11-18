@@ -1,0 +1,552 @@
+section
+  .row
+    .col-xs-12
+      .callout.callout-danger
+        h4
+          ' Editing a blocklist (demo)
+        p
+          ' KnownTroll users can add all or just a handful of their blocks to a blocklist. Blocks can be in multiple blocklists, which means it's easily possible to create themed lists for different issues - or lists encompassing different 'levels' of annoyance. Users can also set up lists to automatically receive their new blocks on Twitter - once this is done, they don't even have to login to KnownTroll to keep sharing blocks with their friends.
+section.content-header
+  h1.header
+    | Edit Your 'Demonstration' Blocklist
+    <small>(Time to add some losers...)</small>
+section.content.content-main
+  .row
+    = bootstrap_form_for List.new do |f|
+      .col-xs-12.col-md-6
+        .callout.callout-info
+          h4 Add and remove blocked accounts from this list
+          p
+            ' Use the checkboxes below to add and remove blocked accounts from the 'Demonstration' list. This won't affect your block - just whether the blocked accounts will be on the list you're sharing with others.
+          p
+            ' Don't forget to hit the 'Update List' button when you're done!
+          = submit_tag("Update list", class: "btn btn-primary btn-flat disabled")
+          input.btn.btn-primary.btn-flat.switch-button onclick="toggleChecked();" type="button" value="Select all"
+          p.auto-check
+            ' If you'd like your new blocks from Twitter to automatically show up on this list, check the box below.
+          .checkbox
+            = check_box_tag nil, 1, nil
+            span.auto-check-label
+              ' Automatically add new blocks from Twitter to this list
+        table.table-bordered.table-list-check
+          tr
+            th Listed?
+            th Avatar
+            th Name
+            th Screen Name
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style="position: relative;"
+                  input id="troll_85" name="list[troll_ids][]" type="checkbox" value="85" style="position: absolute; opacity: 0;"
+            td
+              label for="troll_85"
+                img src="https://pbs.twimg.com/profile_images/396657285/logo_sq_normal.png"
+            td
+              label for="troll_85"
+                ' Happn.in ny
+            td
+              label for="troll_85"
+                ' happn_in_ny
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_84 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="84" /
+            td
+              label for="troll_84"
+                img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_2_normal.png" /
+            td
+              label for="troll_84"  Best Tax Tweet
+            td
+              label for="troll_84"  besttaxtweet
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal.hover aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_83 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="83" /
+            td
+              label.hover for="troll_83"
+                img src="https://pbs.twimg.com/profile_images/300198263/farmhouse2_normal.jpg" /
+            td
+              label for="troll_83"  New Paltz Homes
+            td
+              label for="troll_83"  New_Paltz_Homes
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_82 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="82" /
+            td
+              label for="troll_82"
+                img src="https://pbs.twimg.com/profile_images/326655379/Money_Down_the_Drain_normal.jpg" /
+            td
+              label for="troll_82"  daniel jack
+            td
+              label for="troll_82"  wlcome2
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_81 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="81" /
+            td
+              label for="troll_81"
+                img src="https://pbs.twimg.com/profile_images/297432309/l10_normal.JPG" /
+            td
+              label for="troll_81"  Valerie Smith
+            td
+              label for="troll_81"  CheerchickVal88
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_80 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="80" /
+            td
+              label for="troll_80"
+                img src="https://pbs.twimg.com/profile_images/321726729/si_swimsuit_issue_1_normal.jpg" /
+            td
+              label for="troll_80"  Johnny Mac
+            td
+              label for="troll_80"  SportsFan20
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_79 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="79" /
+            td
+              label for="troll_79"
+                img src="https://pbs.twimg.com/profile_images/448512871/3445031447_a1ec22f456_normal.jpg" /
+            td
+              label for="troll_79"  Emma Hudson
+            td
+              label for="troll_79"  Emma_Hudson
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_78 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="78" /
+            td
+              label for="troll_78"
+                img src="https://pbs.twimg.com/profile_images/459207980/i_normal.jpeg" /
+            td
+              label for="troll_78"  tamerlan
+            td
+              label for="troll_78"  lantamerlan
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_77 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="77" /
+            td
+              label for="troll_77"
+                img src="https://pbs.twimg.com/profile_images/447379902543581184/3b4cyKwE_normal.jpeg" /
+            td
+              label for="troll_77"  Josh Campbell
+            td
+              label for="troll_77"  JCMortgageTeam
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_76 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="76" /
+            td
+              label for="troll_76"
+                img src="https://pbs.twimg.com/profile_images/317692960/cpIcon_normal.jpg" /
+            td
+              label for="troll_76"  Caesars Palace
+            td
+              label for="troll_76"  CaesarsPalace
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_75 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="75" /
+            td
+              label for="troll_75"
+                img src="https://pbs.twimg.com/profile_images/122521871/image001_normal.jpg" /
+            td
+              label for="troll_75"  Graeboy29
+            td
+              label for="troll_75"  Graeboy29
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_74 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="74" /
+            td
+              label for="troll_74"
+                img src="https://pbs.twimg.com/profile_images/573804238/03_normal.jpg" /
+            td
+              label for="troll_74"  chat chakphet
+            td
+              label for="troll_74"  youmechat
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_73 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="73" /
+            td
+              label for="troll_73"
+                img src="https://pbs.twimg.com/profile_images/574041395/0524_ysmimg1_normal.jpg" /
+            td
+              label for="troll_73"  iPhone_Zapple
+            td
+              label for="troll_73"  iPhone_Zapple
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_72 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="72" /
+            td
+              label for="troll_72"
+                img src="https://pbs.twimg.com/profile_images/602692248/580804_normal.jpg" /
+            td
+              label for="troll_72"  Eliana Burton
+            td
+              label for="troll_72"  elidiamonds712
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_71 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="71" /
+            td
+              label for="troll_71"
+                img src="https://pbs.twimg.com/profile_images/214531926/mesmall_normal.JPG" /
+            td
+              label for="troll_71"  Phyllis Minik
+            td
+              label for="troll_71"  smdvacation
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_70 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="70" /
+            td
+              label for="troll_70"
+                img src="https://pbs.twimg.com/profile_images/488912885095997440/K0ju7VCR_normal.jpeg" /
+            td
+              label for="troll_70"  me EPIC you FAIL
+            td
+              label for="troll_70"  WTFHusletteO_o
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_69 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="69" /
+            td
+              label for="troll_69"
+                img src="https://pbs.twimg.com/profile_images/2730952724/e8396cb861dfcc818bcfe0f41faf21c8_normal.jpeg" /
+            td
+              label for="troll_69"  Mike Warren
+            td
+              label for="troll_69"  mikewarren129
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_68 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="68" /
+            td
+              label for="troll_68"
+                img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_6_normal.png" /
+            td
+              label for="troll_68"  Kalion Bridges
+            td
+              label for="troll_68"  Xkalion
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_67 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="67" /
+            td
+              label for="troll_67"
+                img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_5_normal.png" /
+            td
+              label for="troll_67"  Shawn Edwards
+            td
+              label for="troll_67"  1electricshaver
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_66 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="66" /
+            td
+              label for="troll_66"
+                img src="https://pbs.twimg.com/profile_images/1231067428/Lorenzo_trey_songz_normal.jpg" /
+            td
+              label for="troll_66"  LORENZO
+            td
+              label for="troll_66"  lorenzo_h
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_65 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="65" /
+            td
+              label for="troll_65"
+                img src="https://pbs.twimg.com/profile_images/265421515/scratch_logo_new_normal.jpg" /
+            td
+              label for="troll_65"  Scratch Promotions
+            td
+              label for="troll_65"  scratchuk
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_64 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="64" /
+            td
+              label for="troll_64"
+                img src="https://pbs.twimg.com/profile_images/719979464/jacobzagorby_normal.jpeg" /
+            td
+              label for="troll_64"  Jacob Zagorby
+            td
+              label for="troll_64"  obesityandyou
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_63 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="63" /
+            td
+              label for="troll_63"
+                img src="https://pbs.twimg.com/profile_images/469491103994232832/DMC_ESSz_normal.jpeg" /
+            td
+              label for="troll_63"  SKnocks.
+            td
+              label for="troll_63"  StevieKnocks
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_62 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="62" /
+            td
+              label for="troll_62"
+                img src="https://pbs.twimg.com/profile_images/595479016/wponms_normal.jpg" /
+            td
+              label for="troll_62"  Jill
+            td
+              label for="troll_62"  wordpress_on_ms
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_61 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="61" /
+            td
+              label for="troll_61"
+                img src="https://pbs.twimg.com/profile_images/298098258/37370_normal.jpg" /
+            td
+              label for="troll_61"  susan stone
+            td
+              label for="troll_61"  incomesearch101
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_60 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="60" /
+            td
+              label for="troll_60"
+                img src="https://pbs.twimg.com/profile_images/614604532/Geek_normal.jpg" /
+            td
+              label for="troll_60"  Mike Lee
+            td
+              label for="troll_60"  clicks2
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_59 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="59" /
+            td
+              label for="troll_59"
+                img src="https://pbs.twimg.com/profile_images/657309335/rhondabiopic_normal.jpg" /
+            td
+              label for="troll_59"  Rhonda Grice
+            td
+              label for="troll_59"  Writing4Pay
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_58 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="58" /
+            td
+              label for="troll_58"
+                img src="https://pbs.twimg.com/profile_images/293771591/lyndon100x100_normal.jpg" /
+            td
+              label for="troll_58"  FanOfStomperNet
+            td
+              label for="troll_58"  FanOfStomperNet
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_57 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="57" /
+            td
+              label for="troll_57"
+                img src="https://pbs.twimg.com/profile_images/568825029/NHL_devils_normal.gif" /
+            td
+              label for="troll_57"  Shayna
+            td
+              label for="troll_57"  BlogTheNJDevils
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_56 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="56" /
+            td
+              label for="troll_56"
+                img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_3_normal.png" /
+            td
+              label for="troll_56"  spain8812
+            td
+              label for="troll_56"  spain8812
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_55 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="55" /
+            td
+              label for="troll_55"
+                img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_6_normal.png" /
+            td
+              label for="troll_55"  Control Rodent
+            td
+              label for="troll_55"  ControlRodent
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_54 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="54" /
+            td
+              label for="troll_54"
+                img src="https://pbs.twimg.com/profile_images/761610790/trolifix_normal.jpg" /
+            td
+              label for="troll_54"  free software
+            td
+              label for="troll_54"  freesoftfree
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_53 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="53" /
+            td
+              label for="troll_53"
+                img src="https://pbs.twimg.com/profile_images/763185744/worldwideprayerchainlogo_normal.jpg" /
+            td
+              label for="troll_53"  WorldwidePrayerChain
+            td
+              label for="troll_53"  worldwideprayer
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_52 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="52" /
+            td
+              label for="troll_52"
+                img src="https://pbs.twimg.com/profile_images/517504400244240384/-4a_v-y5_normal.jpeg" /
+            td
+              label for="troll_52"  Get Kombucha
+            td
+              label for="troll_52"  GetKombucha
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_51 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="51" /
+            td
+              label for="troll_51"
+                img src="https://abs.twimg.com/sticky/default_profile_images/default_profile_0_normal.png" /
+            td
+              label for="troll_51"  Justin Bieber Fans
+            td
+              label for="troll_51"  Beliebertwist
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_50 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="50" /
+            td
+              label for="troll_50"
+                img src="https://pbs.twimg.com/profile_images/999551155/personal-188_1__normal.jpg" /
+            td
+              label for="troll_50"  Sanu Mia
+            td
+              label for="troll_50"  sanumia
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_49 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="49" /
+            td
+              label for="troll_49"
+                img src="https://pbs.twimg.com/profile_images/485983220345761792/4CSPIl8s_normal.jpeg" /
+            td
+              label for="troll_49"  Alam Akbar
+            td
+              label for="troll_49"  alamakbar
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_48 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="48" /
+            td
+              label for="troll_48"
+                img src="https://pbs.twimg.com/profile_images/1025726779/1_normal.jpg" /
+            td
+              label for="troll_48"  Marketer Girl
+            td
+              label for="troll_48"  netmarketings
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_47 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="47" /
+            td
+              label for="troll_47"
+                img src="https://pbs.twimg.com/profile_images/1431730135/Autumn_Leaves_normal.jpg" /
+            td
+              label for="troll_47"  Alpha2
+            td
+              label for="troll_47"  MattHardy000
+          tr
+            td
+              .checkbox
+                .icheckbox_minimal aria-checked="false" aria-disabled="false" style=("position: relative;")
+                  input#troll_46 name="list[troll_ids][]" style=("position: absolute; opacity: 0;") type="checkbox" value="46" /
+            td
+              label for="troll_46"
+                img src="https://pbs.twimg.com/profile_images/60629342/smile_normal.jpg" /
+            td
+              label for="troll_46"  iloveclothes
+            td
+              label for="troll_46"  iloveclothes
+    .col-xs-12.col-md-6
+      .callout.callout-info
+        h4 Edit the name and description of your list
+        p
+          ' You can change the name and description of the 'Demonstration' list here.
+        p
+          = submit_tag("Update name and description", class: "btn btn-primary btn-flat disabled")
+        .form-group
+          label.control-label for="list_name"
+            ' Name
+          input.form-control id="list_name" name="list[name]" type="text"
+        .form-group
+          label.control-label for="list_description"
+            ' Description
+          input.form-control id="list_description" name="list[description]" type="text"
+      .callout.callout-danger
+        h4
+          | Delete the 'Demonstration' blocklist
+        p
+          ' There are 16 subscribers to 'Demonstration'. If you delete this list, you'll unblock the accounts on it for all of your subscribers.
+        p
+          | If you want to delete 'Demonstration', you can do so by pressing the button below. This can't be undone!
+        a href="#" class="btn btn-danger btn-flat disabled"
+          = "Delete 'Demonstration' permanently!"
+javascript:
+  var toggleChecked = function() {
+    if ($('.switch-button').val() == "Select all") {
+      $('.switch-button').val("Unselect all");
+      $('.table-list-check input[type="checkbox"]').iCheck('check');
+    } else {
+      $('.switch-button').val("Select all");
+      $('.table-list-check input[type="checkbox"]').iCheck('uncheck');
+    }
+  };

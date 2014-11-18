@@ -1,0 +1,24 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: knowntroll-dev
+  pool: 5
+  username: greg
+  password:
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: knowntroll-test
+  port: 5432
+  pool: 5
+  username: greg
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: knowntroll-prod
+  pool: 5
+  username: greg
+  password:

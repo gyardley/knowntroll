@@ -1,0 +1,14 @@
+section.content-header
+  h1.header
+    ' Your Blocked Users
+    <small>(Good riddance, no?)</small>
+section.content
+  .row
+    .col-md-6
+      table.table.table-bordered
+        tr
+          th Avatar
+          th Name
+          th Screen Name
+        - @blocks.each do |block|
+          = render partial: "block_list", locals: { block: block }

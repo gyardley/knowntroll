@@ -1,0 +1,31 @@
+section
+  .row
+    .col-xs-12
+      .callout.callout-danger
+        h4
+          ' Welcome to the KnownTroll demo!
+        p
+          ' Hi, folks! For those of you who don't have a Twitter account, or for those of you who like see what they're trying before they try it, this is what KnownTroll looks like on the inside. You won't be able to do much here, having not authenticated, but you can take a poke around.
+section.content-header
+  h1.header Your Block Lists
+    <small>Hand-built block lists, to be shared with friends</small>
+section.content.content-main
+  .row
+    .col-xs-12.col-md-6
+      .callout.callout-info
+        h4 Your blocklists
+        p
+          ' These are the blocklists
+          strong you
+          '  have created. They are visible to your mutual Twitter friends who use KnownTroll.
+        p
+          ' Editing your own blocklists doesn't affect who's personally blocked from your Twitter account - only which blocks you're sharing with friends on KnownTroll.
+        = link_to "Create another blocklist", new_demo_list_path, class: "btn btn-primary btn-flat"
+      = render partial: 'list', collection: @fake_created_lists
+    .col-xs-12.col-md-6
+      .callout.callout-warning
+        h4 Your subscriptions to friends' blocklists
+        p You're subscribed to these blocklists from your friends. When they add or remove people from these lists, they'll automatically be blocked or unblocked on your account.
+        p If you'd like to subscribe to more blocklists, click the button below.
+        = link_to "Look for blocklists", add_demo_lists_path, class: "btn btn-warning btn-flat"
+      = render partial: 'unsubscribe', collection: @fake_subscribed_lists

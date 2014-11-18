@@ -1,0 +1,16 @@
+doctype html
+html lang="en"
+  head
+    title
+      = content_for?(:title) ? yield(:title) : "KnownTroll"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body class=([(controller_name), (action_name), "skin-blue"].compact.join(' '))
+    = render 'layouts/nav'
+    .wrapper.row-offcanvas.row-offcanvas-left
+      aside.left-side.sidebar-offcanvas
+        = render 'layouts/demobar'
+      aside.right-side
+        = render 'layouts/messages'
+        = yield

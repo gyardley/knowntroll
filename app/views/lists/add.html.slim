@@ -1,0 +1,44 @@
+section.content-header
+  h1.header Find New Block Lists
+    <small>(Because why should you do all the blocking yourself?)</small>
+section.content.content-main
+  .row
+    .col-xs-12.col-md-10.col-md-offset-1
+      - if @lists.count == 0 && current_user.subscribed_lists.count == 0
+        .callout.callout-info
+          h4 You need more friends on KnownTroll
+          p KnownTroll lets mutual Twitter friends (people you follow who are also following you) share blocklists. Right now you either don't have any mutual friends using KnownTroll, or they haven't created any blocklists.
+          p Why not invite some friends to check out KnownTroll? Blocking's better when you do it together.
+          a href="https://twitter.com/share" class="twitter-share-button" data-url="http://knowntroll.r14.railsrumble.com" data-text="Blocking's better when we share and block together - and now we can, with KnownTroll." data-via="KnownTrollApp" data-size="large" data-count="none" data-hashtags="KnownTroll"
+            ' Tweet
+          javascript:
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      - elsif @lists.count == 0
+        .callout.callout-info
+          h4 You've subscribed to everything!
+          p
+            ' Your mutual friends using KnownTroll have created
+            = pluralize(current_user.subscribed_lists.count, "list")
+            ' , and you've subscribed to
+            = pluralize(current_user.subscribed_lists.count, "list")
+            ' !
+          p If you're looking for more and better blocking, why not invite more friends to check out KnownTroll? Blocking's better when you do it together.
+          a href="https://twitter.com/share" class="twitter-share-button" data-url="http://knowntroll.r14.railsrumble.com" data-text="Blocking's better when we share and block together - and now we can, with KnownTroll." data-via="KnownTrollApp" data-size="large" data-count="none" data-hashtags="KnownTroll"
+            ' Tweet
+          javascript:
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+      - else
+        .callout.callout-info
+          h4 These KnownTroll blocklists have been created by your mutual friends on Twitter
+          p You can subscribe to any or all blocklists created by your friends. When you do, KnownTroll will start systematically blocking the accounts on your friends' blocklist. This can take a while - Twitter only allows us to do this so fast.
+          p When you're subscribed to a friends' blocklist, we'll keep things in sync - people your friend adds to her blocklist will also be blocked, and people your friend removes from her blocklist will be unblocked.
+          p There's just one exception - if you're following a person, we won't block them, even if they show up on your friends' blocklists. We assume your decision to follow them overrides your friends' decision to block them.
+          p Got it? Block away!
+        = render partial: 'subscribe', collection: @lists
+        .callout.callout-info
+          h4 Want more blocklists?
+          p Why not invite more friends to checkout KnownTroll? Blocking's better when you can do it together.
+          a href="https://twitter.com/share" class="twitter-share-button" data-url="http://knowntroll.r14.railsrumble.com" data-text="Blocking's better when we share and block together - and now we can, with KnownTroll." data-via="KnownTrollApp" data-size="large" data-count="none" data-hashtags="KnownTroll"
+            ' Tweet
+          javascript:
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');

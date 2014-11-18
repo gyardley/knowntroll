@@ -1,0 +1,194 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@font-face {
+    font-family: 'effraheavy';
+    src: font-url('effra_he-webfont.eot');
+    src: font-url('effra_he-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('effra_he-webfont.woff2') format('woff2'),
+         font-url('effra_he-webfont.woff') format('woff'),
+         font-url('effra_he-webfont.ttf') format('truetype'),
+         font-url('effra_he-webfont.svg#effraheavy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'effraregular';
+    src: font-url('effra_rg-webfont.eot');
+    src: font-url('effra_rg-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('effra_rg-webfont.woff2') format('woff2'),
+         font-url('effra_rg-webfont.woff') format('woff'),
+         font-url('effra_rg-webfont.ttf') format('truetype'),
+         font-url('effra_rg-webfont.svg#effraregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'effralight';
+    src: font-url('effra_lt-webfont.eot');
+    src: font-url('effra_lt-webfont.eot?#iefix') format('embedded-opentype'),
+         font-url('effra_lt-webfont.woff2') format('woff2'),
+         font-url('effra_lt-webfont.woff') format('woff'),
+         font-url('effra_lt-webfont.ttf') format('truetype'),
+         font-url('effra_lt-webfont.svg#effralight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, h3, .logo {
+  font-family: 'effraregular', 'Lucida Grande', 'LucidaSansUnicode', sans-serif !important;
+}
+
+.nav {
+  i.fa.fa-twitter, i.glyphicon.glyphicon-user {
+    margin-right: 5px;
+  }
+  i.caret {
+    margin-left: 5px;
+  }
+}
+
+.row.alerts {
+  .alert {
+    margin: 20px 20px 0 20px;
+  }
+}
+
+.content-header {
+  a.btn {
+    margin-top: -30px;
+  }
+}
+
+.btn-flat {
+  margin-right: 10px;
+}
+
+.blocked-account {
+  float: left;
+  a {
+    i {
+      margin-right: 2px;
+    }
+    color: white;
+    text-decoration: none;
+  }
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
+
+.creator {
+  display: block;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  a {
+    text-decoration: none;
+
+  }
+}
+
+.subscription-box {
+  min-height: 150px;
+  i {
+    margin-right: 2px;
+  }
+}
+
+body.static.index {
+  background-image: image-url("knowntroll.gif");
+  background-size: auto 80%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right bottom;
+}
+
+// body, aside.sidebar-offcanvas {
+//   padding-top: 40px;
+// }
+
+h1.pitch {
+  font-size: 400%;
+  font-weight: bold;
+  max-width: 75%;
+  margin: 40px 7px 7px 7px;
+  line-height: 1.6;
+}
+
+h1.second-pitch {
+  margin-top: 50px;
+  font-size: 350%;
+  font-weight: bold;
+  margin: 7px;
+  width: 65%;
+  line-height: 1.6;
+}
+
+h1.pitch, h1.second-pitch {
+  span {
+    background-color: #367fa9;
+    color: #eeeeee !important;
+    padding: 7px 0;
+    box-shadow: 7px 0 0 #367fa9, -7px 0 0 #367fa9
+  }
+}
+
+h1.second-pitch {
+  padding-top: 20px;
+}
+
+.auto-check {
+  margin-top: 10px;
+}
+.auto-check-label {
+  margin-left: 5px;
+}
+
+.signup-pitch {
+  margin-top: 25px;
+  h3 {
+    font-size: 200% !important;
+  }
+  p {
+    font-size: 125% !important;
+
+  }
+  p.small {
+    line-height: 1.0;
+    color: #555555;
+  }
+  .btn-success, .btn-danger {
+    margin: 0 10px 10px 10px;
+  }
+}
+
+.email-button {
+  margin-left: 10px;
+}
+
+.content.content-main {
+  min-height: 800px;
+}
+
+.btn-default.disabled {
+  margin-top: 10px;
+}
+
+.table-list-check {
+  th {
+    padding: 5px;
+  }
+  label {
+    padding: 5px;
+  }
+}
+
+.signup-buttons {
+  display: inline;
+  float: left;
+  .fa {
+    padding-right: 5px;
+  }
+}

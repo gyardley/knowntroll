@@ -1,0 +1,33 @@
+.box.box-warning
+  .box-header
+    h3.box-title
+      = unsubscribe.name
+      br
+      small
+        = unsubscribe.description
+    .box-tools.pull-right
+      .label.bg-red
+        = pluralize(unsubscribe.block_list.count, "account")
+        '  blocked
+  .box-body.subscription-box
+    .creator
+      p Created by:
+      = link_to "http://twitter.com/#{unsubscribe.owner.screen_name}" do
+        img src=(unsubscribe.owner.image_url)
+        br
+        = unsubscribe.owner.name
+        br
+        i.fa.fa-twitter
+        = unsubscribe.owner.screen_name
+    p Blocked accounts:
+    div
+      - unsubscribe.trolls.each do |troll|
+        .label.bg-red.blocked-account
+          = link_to "http://twitter.com/#{troll.screen_name}" do
+            i.fa.fa-twitter
+            = troll.screen_name
+    .clearfix
+  .box-footer
+    = form_tag("/lists/unsubscribe", method: :delete) do
+        = hidden_field_tag :list_id, unsubscribe.id
+        = submit_tag "Unsubscribe, and stop blocking #{pluralize(unsubscribe.block_list.count, "account")}", class: "btn btn-danger btn-flat"

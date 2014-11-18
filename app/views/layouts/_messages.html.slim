@@ -1,0 +1,29 @@
+- if flash.count > 0
+  - Rails.logger.info flash.inspect
+  .row.alerts
+    .col-xs-12.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2
+      - flash.each do |name, msg|
+        - if name == "success"
+          div.alert.alert-success.alert-dismissable
+            i.fa.fa-check
+            button.close type="button" data-dismiss="alert" aria-hidden="true"
+              ' &times;
+            = content_tag :div, msg, :id => "flash_success"
+        - elsif name == "error"
+          div.alert.alert-danger.alert-dismissable
+            i.fa.fa-ban
+            button.close type="button" data-dismiss="alert" aria-hidden="true"
+              ' &times;
+            = content_tag :div, msg, :id => "flash_danger"
+        - elsif name == "warning"
+          div.alert.alert-warning.alert-dismissable
+            i.fa.fa-warning
+            button.close type="button" data-dismiss="alert" aria-hidden="true"
+              ' &times;
+            = content_tag :div, msg, :id => "flash_warning"
+        - elsif name == "info"
+          div.alert.alert-info.alert-dismissable
+            i.fa.fa-info
+            button.close type="button" data-dismiss="alert" aria-hidden="true"
+              ' &times;
+            = content_tag :div, msg, :id => "flash_info"

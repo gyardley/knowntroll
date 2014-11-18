@@ -1,0 +1,34 @@
+.container
+  .row
+    .col-xs-12
+      h1.pitch
+        span
+          ' Create and share your Twitter blocklists with your friends.
+      h1.second-pitch
+        span
+          ' Blocking's much better when you can do it together.
+  .row
+    .col-xs-12.col-md-7
+      .box.box-primary.signup-pitch
+        .box-header
+          h3.box-title
+            ' Sick of bullying on Twitter?
+        .box-body
+          p
+            ' When your friends are the subject of harassment on Twitter, it can feel like they're carrying the load alone - every block is a bit more time out of their day, a little more exposure to abuse.
+          p
+            ' KnownTroll helps make the load more manageable by sharing Twitter blocklists with friends. If you see someone targeting your friends,
+            strong
+              ' you
+            ' can do the blocking, both for yourself and everyone you're sharing with.
+          .signup-buttons
+            = link_to "/auth/twitter", method: :post, class: "btn btn-lg btn-flat btn-success" do
+              i.fa.fa-twitter
+              ' Sign up with Twitter
+            = link_to "/demo/lists", class: "btn btn-lg btn-flat btn-danger" do
+              i.fa.fa-unlock
+              ' See a Twitter-free demo!
+          .clearfix
+          p.small
+            small
+              ' KnownTroll requires read and write permissions in order to automatically add and remove blocks. KnownTroll never tweets on your behalf without your explicit permission - man, I hate it when apps do that.

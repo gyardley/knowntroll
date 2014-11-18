@@ -1,0 +1,23 @@
+section
+  .row
+    .col-xs-12
+      .callout.callout-danger
+        h4
+          ' Finding new block lists (demo)
+        p
+          ' When a friend shares a block list, all a KnownTroll user has to do is subscribe to that block list to automatically block all the people - whether it's tens or hundreds or thousands. (Admittedly, thousands takes a while.) Ending harassment is a social problem, not a technological one, but friends are looking out for you and blocking your harassers can hopefully improve the situation.
+        p
+          ' I've shown one (fake) block list here, but there's no reason why dozens or hundreds of friends couldn't be contributing their lists to each other.
+section.content-header
+  h1.header Find New Block Lists
+    <small>(Because why should you do all the blocking yourself?)</small>
+section.content.content-main
+  .row
+    .col-xs-12.col-md-10.col-md-offset-1
+      .callout.callout-info
+        h4 These KnownTroll blocklists have been created by your mutual friends on Twitter
+        p You can subscribe to any or all blocklists created by your friends. When you do, KnownTroll will start systematically blocking the accounts on your friends' blocklist. This can take a while - Twitter only allows us to do this so fast.
+        p When you're subscribed to a friends' blocklist, we'll keep things in sync - people your friend adds to her blocklist will also be blocked, and people your friend removes from her blocklist will be unblocked.
+        p There's just one exception - if you're following a person, we won't block them, even if they show up on your friends' blocklists. We assume your decision to follow them overrides your friends' decision to block them.
+        p Got it? Block away!
+      = render partial: 'subscribe', collection: @fake_additional_lists

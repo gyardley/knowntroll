@@ -1,0 +1,53 @@
+- if current_user.no_email?
+  section
+    .row
+      .col-xs-12
+        .callout.callout-warning
+          h4
+            ' Welcome to KnownTroll - one small request
+          p
+            ' If you're willing, I'd like your email address. It's optional - you don't need to give it to me, so don't feel like you have to make something up. But if you're interested in this project, I'll be using it to share news about KnownTroll and solicit feedback. Nothing else, I hate spam too.
+          = form_tag('/users/email', method: :post) do
+            = text_field_tag :email, nil, class: "col-xs-4"
+            p
+              = submit_tag("Send your email", class: "btn btn-warning btn-sm email-button")
+              = link_to "Don't ask me again", users_decline_path, class: "btn btn-default btn-sm email-button"
+section.content-header
+  h1.header Your Block Lists
+    <small>Hand-built block lists, to be shared with friends</small>
+section.content.content-main
+  .row
+    .col-xs-12.col-md-6
+      - if current_user.created_lists.count == 0
+        .callout.callout-info
+          h4 You haven't created a blocklist yet!
+          p When you create blocklists to share with your friends, this is where they'll show up. Click the button below to get started.
+          = link_to "Create a new blocklist", new_list_path, class: "btn btn-primary btn-flat"
+      - else
+        .callout.callout-info
+          h4 Your blocklists
+          p
+            ' These are the blocklists
+            strong you
+            '  have created. They are visible to your mutual Twitter friends who use KnownTroll.
+          p
+            ' Editing your own blocklists doesn't affect who's personally blocked from your Twitter account - only which blocks you're sharing with friends on KnownTroll.
+          = link_to "Create another blocklist", new_list_path, class: "btn btn-primary btn-flat"
+        = render partial: 'list', collection: current_user.created_lists
+    .col-xs-12.col-md-6
+      - if current_user.subscribed_lists.count == 0
+        .callout.callout-warning
+          h4 You haven't subscribed to a blocklist yet!
+          p
+            ' When you subscribe to your friends' blocklists, we'll automatically block all Twitter accounts on that list from
+            strong your
+            '  account.
+          = link_to "Look for blocklists", add_lists_path, class: "btn btn-warning btn-flat"
+      - else
+        .callout.callout-warning
+          h4 Your subscriptions to friends' blocklists
+          p You're subscribed to these blocklists from your friends. When they add or remove people from these lists, they'll automatically be blocked or unblocked on your account.
+          p If you'd like to subscribe to more blocklists, click the button below.
+          = link_to "Look for blocklists", add_lists_path, class: "btn btn-warning btn-flat"
+        = render partial: 'unsubscribe', collection: current_user.subscribed_lists
+

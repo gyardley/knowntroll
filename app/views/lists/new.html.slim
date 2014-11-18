@@ -1,0 +1,16 @@
+section.content-header
+  h1.header Create A New Block List
+    <small>Set up a new block list around a particular theme</small>
+section.content
+  .row
+    .col-xs-12.col-md-10.col-md-offset-1
+      .callout.callout-info
+        h4 Provide a name and description for your list
+        p This information will be visible to your friends on Twitter who also use KnownTroll.
+        p You'll create a blank list first, and then add individual blocks to it afterwards.
+  .row
+    .col-xs-12.col-md-10.col-md-offset-1
+      = bootstrap_form_for @list do |f|
+        = f.text_field :name
+        = f.text_field :description
+        = f.submit "Create this list"

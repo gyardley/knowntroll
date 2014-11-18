@@ -1,0 +1,32 @@
+.box.box-primary
+  .box-header
+    h3.box-title
+      = list.name
+      br
+      small
+        = list.description
+    .box-tools.pull-right
+      .label.bg-red
+        = pluralize(list.block_list.count, "account")
+        '  blocked
+      br
+      .label.bg-aqua
+        = pluralize(list.users.count-1, "subscriber")
+  .box-body
+    p.block-statement
+    - if list.auto_add_new_blocks
+      ' The new blocks you make on Twitter will be automatically added to this list.
+    - else
+      ' Your new blocks are
+      strong NOT
+      '  automatically added to this list.
+    p
+    p Blocked accounts:
+    - list.trolls.each do |blocked|
+      .label.bg-red.blocked-account
+        = link_to "http://twitter.com/#{blocked.screen_name}" do
+          i.fa.fa-twitter
+          = blocked.screen_name
+    .clearfix
+  .box-footer
+    = link_to "Edit your '#{list.name}' blocklist", edit_list_path(list), class: "btn btn-primary btn-flat"

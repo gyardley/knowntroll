@@ -1,0 +1,86 @@
+section.content-header
+  h1.header
+    | Edit Your '
+    = @list.name
+    |' Blocklist
+    <small>(Time to add some losers...)</small>
+section.content.content-main
+  .row
+    = bootstrap_form_for @list do |f|
+      .col-xs-12.col-md-6
+        .callout.callout-info
+          h4 Add and remove blocked accounts from this list
+          p
+            ' Use the checkboxes below to add and remove blocked accounts from the
+            = @list.name
+            '  list. This won't affect your block - just whether the blocked accounts will be on the list you're sharing with others.
+          p
+            ' Don't forget to hit the 'Update List' button when you're done!
+          = submit_tag("Update list", class: "btn btn-primary btn-flat")
+          input.btn.btn-primary.btn-flat.switch-button onclick="toggleChecked();" type="button" value="Select all"
+          p.auto-check
+            ' If you'd like your new blocks from Twitter to automatically show up on this list, check the box below.
+          .checkbox
+            = check_box_tag "list[auto_add_new_blocks]", 1, @list.auto_add_new_blocks
+            span.auto-check-label
+              ' Automatically add new blocks from Twitter to this list
+        table.table-bordered.table-list-check
+          tr
+            th Listed?
+            th Avatar
+            th Name
+            th Screen Name
+          = hidden_field_tag "list[troll_ids][]", nil
+          - current_user.own_trolls.each do |troll|
+            tr
+              td
+                .checkbox
+                  = check_box_tag "list[troll_ids][]", troll.uid, @list.block_list.include?(troll.uid), id: dom_id(troll)
+              td
+                label for=(dom_id(troll))
+                  img src=(troll.image_url)
+              td
+                label for=(dom_id(troll))
+                  = troll.name
+              td
+                label for=(dom_id(troll))
+                  = troll.screen_name
+    .col-xs-12.col-md-6
+      = bootstrap_form_for @list do |f|
+        .callout.callout-info
+          h4 Edit the name and description of your list
+          p
+            ' You can change the name and description of the
+            = @list.name
+            '  list here.
+          = submit_tag("Update name and description", class: "btn btn-primary btn-flat")
+        = f.text_field :name
+        = f.text_field :description
+      = form_tag("/lists/#{@list.id}", method: :delete) do
+        .callout.callout-danger
+          h4
+            | Delete the '
+            = @list.name
+            ' ' blocklist
+          - if @list.users.count > 1
+            p
+              ' There are
+              = @list.users.count-1
+              |  subscribers to '
+              = @list.name
+              ' '. If you delete this list, you'll unblock the accounts on it for all of your subscribers.
+          p
+            | If you want to delete '
+            = @list.name
+            ' ', you can do so by pressing the button below. This can't be undone!
+          = submit_tag "Delete '#{@list.name}' permanently!", class: "btn btn-danger btn-flat"
+javascript:
+  var toggleChecked = function() {
+    if ($('.switch-button').val() == "Select all") {
+      $('.switch-button').val("Unselect all");
+      $('.table-list-check input[type="checkbox"]').iCheck('check');
+    } else {
+      $('.switch-button').val("Select all");
+      $('.table-list-check input[type="checkbox"]').iCheck('uncheck');
+    }
+  };

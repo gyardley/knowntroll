@@ -1,14 +1,21 @@
-# If you do not have OpenSSL installed, update
-# the following line to use "http://" instead
+# If you have OpenSSL installed, we recommend updating
+# the following line to use "https"
 source 'https://rubygems.org'
 
-gem "middleman", "~>3.3.7"
+gem "middleman", "~> 3.3.4"
+gem "slim", "~> 2.0.3"
+gem "bootstrap-sass", "~> 3.2.0.1", require: false
+gem "font-awesome-middleman", "~> 4.1.1"
+gem "middleman-favicon-maker", "~> 3.7"
+gem "middleman-bourbon", "~> 0.0.2"
 
-# Live-reloading plugin
+# file optimization & minification
+gem "middleman-minify-html", "~> 3.4.0"
+gem "oj", "~> 2.10.0"
+gem "middleman-imageoptim", "~> 0.1.4"
+
+# added for development easiness
 gem "middleman-livereload", "~> 3.1.0"
 
-# For faster file watcher updates on Windows:
-gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
-
-# Windows does not come with time zone data
-gem "tzinfo-data", platforms: [:mswin, :mingw]
+# added to ease deployment
+gem 'middleman-gh-pages', '~> 0.0.3'

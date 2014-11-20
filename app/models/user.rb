@@ -62,8 +62,6 @@ class User < ActiveRecord::Base
   # sets up the initial blocks on account creation
   def initialize_blocks
     begin
-      blocks = []
-
       self.block_list = self.own_blocks = client.blocked_ids.to_a
       self.save
 
@@ -103,25 +101,15 @@ class User < ActiveRecord::Base
   end
 
   def mutual_friends
-    users = []
-    friend_list.each do |friend|
-      if User.exists?(uid: friend)
-        if User.where(uid: friend).first.friend_list.include? uid
-          users << User.where(uid: friend).first
-        end
-      end
-    end
-    users
+    # get the friends who are KnownTroll users via map and grep and then find mutual friends with select
+    friend_list.map { |friend| User.where(uid: friend).first }.grep(User).select { |user| self.mutual_friend?(user) }
   end
 
   # args - troll, a Troll instance
   def has_list_with_block?(args)
     troll_id = args.fetch(:troll).uid
 
-    found = false
-    lists.each do |list|
-      found = true if list.block_list.include?(troll_id)
-    end
+    found = lists.any? { |list| list.block_list.include?(troll_id) }
     found = true if self.own_blocks.include?(troll_id)
 
     found
@@ -146,18 +134,11 @@ class User < ActiveRecord::Base
 
         # delete old friends
         removed_friends.each do |friend|
-          # add back blocks that would've been there
-          if Troll.exists?(uid: friend.to_s)
-            block_troll = false
-            lists.each do |list|
-              if list.block_list.include?(friend)
-                block_troll = true
-              end
-            end
-            if block_troll
-              troll = Troll.where(uid: friend.to_s).first
-              Blockqueue.block_troll(troll: troll, user: self)
-            end
+
+          # if the removed friend is a troll and the troll's on any block_list, add the block back
+          if Troll.exists?(uid: friend.to_s) && lists.any? { |list| list.block_list.include?(friend) }
+            troll = Troll.where(uid: friend.to_s).first
+            Blockqueue.block_troll(troll: troll, user: self)
           end
 
           if User.exists?(uid: friend.to_s)

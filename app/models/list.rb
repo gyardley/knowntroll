@@ -22,11 +22,11 @@ class List < ActiveRecord::Base
     # for each mutual friend, for each of that friend's lists,
     # return each list that the user doesn't belong to
 
-    user.mutual_friends.map { |friend|
+    user.mutual_friends.flat_map { |friend|
       friend.lists.select { |list|
         !user.lists.exists?(id: list.id)
       }
-    }.flatten.uniq
+    }.uniq
   end
 
 end
